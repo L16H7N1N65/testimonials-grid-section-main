@@ -1,0 +1,232 @@
+/* Custom properties start*/
+
+
+:root {
+  --bg-color: #ECF2F8;
+  --white-color: #fff;
+  --primary-color: #733FC8;
+  --primary-accent-color: #A775F1;
+  --secondary-color: #48556A;
+  --tertiary-color: #19202D;
+  --lightest-gray-color: #CFCFCF;
+
+  --font-family:'Barlow Semi Condensed', sans-serif;
+}
+
+/* Custom properties end  */
+
+
+body {
+  font-family:var(--font-family) ;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white-color);
+  background-color: var(--bg-color);
+  margin: 4em auto;
+}
+
+h2,
+p {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+
+.container {
+  /* display: flex;
+  flex-direction: column; */
+  display: grid;
+  grid-area:  
+  "box1 box1 box2 box5"
+  "box3 box4 box4 box5";
+  grid-template-columns: repeat(4fr, 1);
+  gap: 1.5rem;
+  align-items: center;
+  max-width: 1440px; /*To remember !! */
+  margin: 0 auto;    /*To remember !! */
+}
+
+
+.box {
+  grid-area: box;
+  box-sizing: border-box;
+  background: var(--primary-color);
+  border-radius: 10px;
+  padding: 2em 1.75em;
+  margin: 1em;
+  display: grid;
+  grid-template-columns: 45px auto;
+  grid-template-rows: 16px 16px auto minmax(auto, 1fr);
+  grid-template-areas:
+      "img name"
+      "img title"
+      "main-quote main-quote"
+      "testimonial testimonial";
+}
+
+.card__name {
+  grid-area: name;
+  font-size: .8125rem;
+  font-weight: 500;
+}
+
+.card__title {
+  grid-area: title;
+  font-size: .6875rem;
+  opacity: 50%;
+  margin-top: 2px;
+}
+
+.card__main-quote {
+  grid-area: main-quote;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1em 0;
+}
+
+.card__testimonial {
+  font-size: .8125rem;
+  grid-area: testimonial;
+  color: var(--testimonial-color);
+  opacity: 70%;
+  line-height: 1.6;
+}
+
+.card__img {
+  grid-area: img;
+  height: 28px;
+  width: auto;
+  border-radius: 100%;
+  margin-top: 2px;
+}
+
+.accent-border {
+  border: 2px solid var(--primary-accent-color);
+}
+
+
+.box1 {
+  grid-area: box1;
+  background: var(--primary-color);
+  color: var(--white-color);
+  background-image: url(../images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: 85% 0%;
+}
+
+.box2 {
+  grid-area: box2;
+  background: var(--secondary-color);
+  color: var(--white-color);
+}
+
+.box3 {
+  grid-area: box3;
+}
+
+.box4 {
+  grid-area: box4;
+  background: var(--tertiary-color);
+  color: var(--white-color);
+}
+
+.box5 {
+  grid-area: box5;
+}
+
+.box3,
+.box5 {
+  background: var(--white-color);
+  color: var(--secondary-color);
+}
+
+/* ------- @ media queries------ */
+/* width of 375px or less */
+
+@media (min-width: 250px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "box1"
+      "box2"
+      "box3"
+      "box4"
+      "box5";
+    gap: 2em;
+    padding: 2em;
+    align-items: unset;
+  }
+}
+
+  .box {
+    margin: 0;
+    padding: 2em;
+  }
+
+
+@media (min-width: 600px) {
+
+  .container {
+      display: grid;
+      grid-template-columns: minmax(250px, auto) minmax(250px, auto);
+      grid-template-areas:
+          "box1 box4"
+          "box2 box3"
+          "box5 box5";
+      gap: 2em;
+      padding: 2em;
+      align-items: unset;
+  }
+
+  .box {
+      margin: 0;
+      padding: 2em;
+  }
+}
+
+/* regular sized media query */
+
+@media (min-width: 1100px) {
+
+  /* check again with guillaume before submitting  */
+  .container {
+      grid-template-columns: repeat(4, minmax(200px, auto));
+      grid-template-areas:
+          "box1 box1 box2 box5"
+          "box3 box4 box4 box5";
+  }
+
+  .box {
+      margin: 0;
+      padding: 2em;
+  }
+
+  .box1 {
+      background-position: 80% 0%;
+  }
+}
+
+/* .attribution {
+  font-size: 11px;
+  text-align: center;
+  color: var(--tertiary-color);
+  width: 400px;
+  margin: 2em auto;
+}
+
+.attribution a {
+  color: var(--primary-accent-color);
+  text-decoration: none;
+}
+
+.attribution a:hover,
+.attribution a:focus {
+  background: var(--primary-accent-color);
+  color: var(--white-color);
+  padding: 1px 3px;
+} */
+
+
+
